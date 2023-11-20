@@ -14,7 +14,7 @@ const todos = [
   { id: 4, title: "Task 4", completed: false },
 ];
 
-const Lab5 = (app) => {
+const lab5 = (app) => {
   app.post("/a5/todos", (req, res) => {
     const newTodo = {
       ...req.body,
@@ -148,4 +148,4 @@ const Lab5 = (app) => {
   });
 };
 
-export default Lab5;
+export default lab5;
