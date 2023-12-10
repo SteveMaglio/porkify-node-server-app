@@ -3,13 +3,11 @@ const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     firstName: String,
-    email: String,
     lastName: String,
+    email: String,
     dob: Date,
-    role: {
-      type: String,
-      enum: ["STUDENT", "FACULTY", "ADMIN", "USER"],
-      default: "USER" },
+    isModerator: Boolean,
+    biography: String,
   },
   { collection: "users" });
 export default userSchema;

@@ -1,0 +1,20 @@
+[
+    {
+        "user_id": { "$oid": "65580756fed6bb3b501c55f2" },
+        "song_id": { "$oid": "65580756fed6bb3b501c55f2" },
+        "body": "this song rocks!",
+        "rating": 4.50
+    },
+    {
+        "user_id": { "$oid": "65580756fed6bb3b501c55f2" },
+        "song_id": { "$oid": "65580756fed6bb3b501c55f2" },
+        "body": "this song rocks!",
+        "rating": 4.50
+    },
+    {
+        "user_id": { "$oid": "65580756fed6bb3b501c55f2" },
+        "song_id": { "$oid": "65580756fed6bb3b501c55f2" },
+        "body": "this song rocks!",
+        "rating": 4.50
+    }
+]

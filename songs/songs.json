@@ -1,0 +1,82 @@
+[
+    {
+        "spotify_id": "32OlwWuMpZ6b0aN2RZOeMS",
+        "title": "Uptown Funk",
+        "artists": ["Mark Ronson", "Bruno Mars"],
+        "genres": ["Funk", "Pop"],
+        "album_name": "Uptown Special",
+        "release_date": "2014-11-10"
+    },
+    {
+        "spotify_id": "2JzZzZUQj3Qff7wapcbKjc",
+        "title": "See You Again",
+        "artists": ["Wiz Khalifa", "Charlie Puth"],
+        "genres": ["Hip-hop", "Pop"],
+        "album_name": "Furious 7: Original Motion Picture Soundtrack",
+        "release_date": "2015-03-10"
+    },
+    {
+        "spotify_id": "34gCuhDGsG4bRPIf9bb02f",
+        "title": "Thinking Out Loud",
+        "artists": ["Ed Sheeran"],
+        "genres": ["Pop", "Soul"],
+        "album_name": "x",
+        "release_date": "2014-06-20"
+    },
+    {
+        "spotify_id": "2d8JP84HNLKhmd6IYOoupQ",
+        "title": "Trap Queen",
+        "artists": ["Fetty Wap"],
+        "genres": ["Hip-hop", "Rap"],
+        "album_name": "Fetty Wap",
+        "release_date": "2014-04-22"
+    },
+    {
+        "spotify_id": "2iuZJX9X9P0GKaE93xcPjk",
+        "title": "Sugar",
+        "artists": ["Maroon 5"],
+        "genres": ["Pop", "Funk"],
+        "album_name": "V",
+        "release_date": "2015-01-13"
+    },
+    {
+        "spotify_id": "4kbj5MwxO1bq9wjT5g9HaA",
+        "title": "Shut Up and Dance",
+        "artists": ["Walk the Moon"],
+        "genres": ["Pop", "Rock"],
+        "album_name": "Talking Is Hard",
+        "release_date": "2014-09-10"
+    },
+    {
+        "spotify_id": "22VdIZQfgXJea34mQxlt81",
+        "title": "Can't Feel My Face",
+        "artists": ["The Weeknd"],
+        "genres": ["Pop", "R&B"],
+        "album_name": "Beauty Behind the Madness",
+        "release_date": "2015-06-08"
+    },
+    {
+        "spotify_id": "0Cy7wt6IlRfBPHXXjmZbcP",
+        "title": "Love Me Like You Do",
+        "artists": ["Ellie Goulding"],
+        "genres": ["Pop", "Electropop"],
+        "album_name": "Fifty Shades of Grey: Original Motion Picture Soundtrack",
+        "release_date": "2015-01-7"
+    },
+    {
+        "spotify_id": "1u2hPlWD5rlCzDa0X6zHaf",
+        "title": "Cheerleader",
+        "artists": ["OMI"],
+        "genres": ["Reggae", "Pop"],
+        "album_name": "Me 4 U",
+        "release_date": "2012-04-19"
+    },
+    {
+        "spotify_id": "7fBv7CLKzipRk6EC6TWHOB",
+        "title": "The Hills",
+        "artists": ["The Weeknd"],
+        "genres": ["R&B", "Hip-hop"],
+        "album_name": "Beauty Behind the Madness",
+        "release_date": "2015-05-27"
+    }
+]
