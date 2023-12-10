@@ -1,20 +1,23 @@
 [
-    {
-        "user_id": { "$oid": "65580756fed6bb3b501c55f2" },
-        "song_id": { "$oid": "65580756fed6bb3b501c55f2" },
-        "body": "this song rocks!",
-        "rating": 4.50
-    },
-    {
-        "user_id": { "$oid": "65580756fed6bb3b501c55f2" },
-        "song_id": { "$oid": "65580756fed6bb3b501c55f2" },
-        "body": "this song rocks!",
-        "rating": 4.50
-    },
-    {
-        "user_id": { "$oid": "65580756fed6bb3b501c55f2" },
-        "song_id": { "$oid": "65580756fed6bb3b501c55f2" },
-        "body": "this song rocks!",
-        "rating": 4.50
-    }
+  {
+    "user_id": { "$oid": "65580756fed6bb3b501c55f2" },
+    "song_id":{"$oid":"6575f660d8b5e71289833622"},
+    "body": "this song rocks!",
+    "rating": 4.5,
+    "favorited": true
+  },
+  {
+    "user_id": { "$oid": "65580756fed6bb3b501c55f2" },
+    "song_id": { "$oid": "6575f660d8b5e71289833625" },
+    "body": "overrated af. This man is finished i'm afraid.",
+    "rating": 2.5,
+    "favorited": false
+  },
+  {
+    "user_id": { "$oid": "65580756fed6bb3b501c55f2" },
+    "song_id": {"$oid":"6575f660d8b5e71289833628"},
+    "body": "an oldie but a goodie",
+    "rating": 5.0,
+    "favorited": true
+  }
 ]

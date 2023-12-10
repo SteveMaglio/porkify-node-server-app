@@ -1,7 +1,10 @@
 import model from "./model.js";
 import model from "../users/model.js";
-export const createReview = (Review) => model.create(Review);
+export const createReview = (review) => model.create(review);
 export const findAllReviews = () => model.find();
-export const findReviewByUserId = (UserId) => model.findById(UserId);
-export const deleteReview = (ReviewId) =>
-  model.deleteOne({ _id: ReviewId });
+export const updateReview = (reviewId, review) =>
+  model.updateOne({ _id: reviewId }, { $set: review });
+export const findReviewByUserId = (userId) => model.findById(userId);
+export const findReviewById = (reviewId) => model.findById(reviewId);
+export const deleteReview = (reviewId) =>
+  model.deleteOne({ _id: reviewId });

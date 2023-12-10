@@ -1,4 +1,4 @@
-import * as dao from "./dao.js"; // TODO - this
+import * as dao from "./dao.js";
 let currentSong = null;
 function SongRoutes(app) {
   const createSong = async (req, res) => {
@@ -12,7 +12,7 @@ function SongRoutes(app) {
   };
 
   const findSongBySpotifyId = async (req, res) => {
-    const song = await dao.findSongById(req.params.spotify_id);
+    const song = await dao.findSongById(req.params.spotifyId);
     res.json(song);
   };
 
