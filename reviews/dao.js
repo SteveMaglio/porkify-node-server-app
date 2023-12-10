@@ -1,5 +1,4 @@
 import model from "./model.js";
-import model from "../users/model.js";
 export const createReview = (review) => model.create(review);
 export const findAllReviews = () => model.find();
 export const updateReview = (reviewId, review) =>

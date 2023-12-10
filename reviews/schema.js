@@ -8,5 +8,5 @@ const userSchema = new mongoose.Schema({
     is_taken_down: Boolean,
     reason_for_taken_down: String,
   },
-  { collection: "users" });
+  { collection: "reviews" });
 export default userSchema;
