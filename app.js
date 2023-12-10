@@ -3,6 +3,8 @@ import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
 import UserRoutes from "./users/routes.js";
+import SongRoutes from "./songs/routes.js";
+import ReviewRoutes from "./reviews/routes.js";
 import session from "express-session";
 import "dotenv/config";
 
@@ -29,6 +31,8 @@ app.use(
 
 app.use(express.json());
 UserRoutes(app);
+ReviewRoutes(app);
+SongRoutes(app);
 app.listen(process.env.PORT || 4000);
 
 const CONNECTION_STRING = 'mongodb+srv://giuseppi:supersecretpassword@cluster0.ittazzy.mongodb.net/porkify?retryWrites=true&w=majority' || 'mongodb://127.0.0.1:27017/porkify'

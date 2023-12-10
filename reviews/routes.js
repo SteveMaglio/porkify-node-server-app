@@ -1,6 +1,6 @@
 import * as dao from "./dao.js";
 let currentUser = null;
-function UserRoutes(app) {
+function ReviewRoutes(app) {
   const createReview = async (req, res) => {
     const review = await dao.createReview(req.body);
     res.json(review);
@@ -43,4 +43,4 @@ function UserRoutes(app) {
   app.delete("/api/reviews/:reviewId", deleteReview);
 
 }
-export default UserRoutes;
+export default ReviewRoutes;
