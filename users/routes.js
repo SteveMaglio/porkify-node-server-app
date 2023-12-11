@@ -45,12 +45,17 @@ function UserRoutes(app) {
 
 
   const signin = async (req, res) => {
-    const { username, password } = req.body;
-    const currentUser = await dao.findUserByCredentials(username, password);
-    req.session['currentUser'] = currentUser;
-    res.json(currentUser);
+    try {
+      const { username, password } = req.body;
+      const currentUser = await dao.findUserByCredentials(username, password);
+      req.session['currentUser'] = currentUser;
+      res.json(currentUser);
+    } catch (error) {
+      res.status(400).json(
+        { message: "invalid request body" });
+    }
   };
-
+  
 
   const signout = (req, res) => {
     req.session.destroy();
