@@ -29,6 +29,16 @@ function ReviewRoutes(app) {
     res.json(reviews);
   };  
 
+  const findReviewsBySongId = async (req, res) => {
+    const reviews = await dao.findReviewsBySongId(req.params.songId);
+    res.json(reviews);
+  };  
+
+  const averageSongReviewRating = async (req, res) => {
+    const average = await dao.averageSongReviewRating(req.params.songId);
+    res.json(average);
+  };  
+
   const findFavoritedReviewsByUserId = async (req, res) => {
     const favorited_reviews = await dao.findFavoritedReviewsByUserId(req.params.userId);
     res.json(favorited_reviews);
@@ -43,6 +53,10 @@ function ReviewRoutes(app) {
   app.post("/api/reviews", createReview);
   app.get("/api/reviews", findAllReviews);
   app.get("/api/users/:userId/reviews", findReviewsByUserId);
+  app.get("/api/songs/:songId/reviews", findReviewsBySongId);
+
+  app.get("/api/songs/:songId/avgRating", averageSongReviewRating);
+
   app.get("/api/users/:userId/favorited_reviews", findFavoritedReviewsByUserId);
   app.get("/api/reviews/:reviewId", findReviewById);
   app.put("/api/reviews/:reviewId", updateReview);
