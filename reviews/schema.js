@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const userSchema = new mongoose.Schema({
+const reviewSchema = new mongoose.Schema({
     user_id: String,
     song_id: String,
     favorited: Boolean,
@@ -9,4 +9,4 @@ const userSchema = new mongoose.Schema({
     reason_for_taken_down: String
   },
   { collection: "reviews" });
-export default userSchema;
+export default reviewSchema;
