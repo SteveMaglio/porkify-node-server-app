@@ -6,6 +6,7 @@ const songSchema = new mongoose.Schema({
     genres: [String],
     album_name: String,
     release_date: Date,
+    album_art_url: String,
   },
   { collection: "songs" });
 export default songSchema;

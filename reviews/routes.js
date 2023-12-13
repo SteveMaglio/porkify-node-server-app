@@ -19,15 +19,15 @@ function ReviewRoutes(app) {
     res.json(status);
   };
 
-  // const findReviewByUserId = async (req, res) => {
-  //   const review = await dao.findReviewByUserId(req.params.userId);
-  //   res.json(review);
-  // };
-
   const findReviewById = async (req, res) => {
     const review = await dao.findReviewById(req.params.reviewId);
     res.json(review);
   };
+
+  const findReviewsByUserId = async (req, res) => {
+    const reviews = await dao.findReviewsByUserId(req.params.userId);
+    res.json(reviews);
+  };  
 
   const deleteReview = async (req, res) => {
     const status = await dao.deleteReview(req.params.reviewId);
@@ -37,7 +37,7 @@ function ReviewRoutes(app) {
 
   app.post("/api/reviews", createReview);
   app.get("/api/reviews", findAllReviews);
-  //app.get("/api/reviews/:userId", findReviewByUserId);
+  app.get("/api/users/:userId/reviews", findReviewsByUserId);
   app.get("/api/reviews/:reviewId", findReviewById);
   app.put("/api/reviews/:reviewId", updateReview);
   app.delete("/api/reviews/:reviewId", deleteReview);
