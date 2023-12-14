@@ -23,10 +23,16 @@ export const averageSongReviewRating = async (songId) => {
   }
 
   for (let i = 0; i < allReviews.length; i++) {
+
+    console.log("RATING LOOP", allReviews[i].rating);
     sum += allReviews[i].rating;
   }
 
+
+  console.log('SUM', sum);
+  console.log('LEN', allReviews.length);
   avg = sum / allReviews.length;
+  console.log('AVG', avg);
 
   return avg;
 };

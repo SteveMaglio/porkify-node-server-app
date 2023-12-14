@@ -1,4 +1,4 @@
-import { findSongById } from "../songs/dao.js";
+import { findSongById, findSongBySpotifyId } from "../songs/dao.js";
 import { findUserById } from "../users/dao.js";
 import * as dao from "./dao.js";
 let currentUser = null;
@@ -55,6 +55,23 @@ function ReviewRoutes(app) {
     res.json(reviews);
   };  
 
+  const findReviewsBySpotifyId = async (req, res) => {
+
+    const song = await findSongBySpotifyId(req.params.spotifyId);
+
+    console.log("SPOTIFY ID", req.params.spotifyId);
+    if (song) {
+    console.log("SONG ID", song._id);
+
+    const reviews = await dao.findReviewsBySongId(song._id);
+    console.log("reviews", reviews);
+    res.json(reviews);
+    }
+    else{
+      res.json([]);
+    }
+  };  
+
 
   const averageSongReviewRating = async (req, res) => {
     const average = await dao.averageSongReviewRating(req.params.songId);
@@ -79,6 +96,7 @@ function ReviewRoutes(app) {
 
 
   app.get("/api/songs/:songId/reviews", findReviewsBySongId);
+  app.get("/api/songs/:spotifyId/reviews", findReviewsBySpotifyId);
 
   app.get("/api/songs/:songId/avgRating", averageSongReviewRating);
 
