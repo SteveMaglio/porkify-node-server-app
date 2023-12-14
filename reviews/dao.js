@@ -1,8 +1,9 @@
 import model from "./model.js";
+import mongoose from "mongoose";
 export const createReview = (review) => model.create(review);
 export const findAllReviews = () => model.find();
 export const updateReview = (reviewId, review) =>
-  model.updateOne({ _id: reviewId }, { $set: review });
+  model.updateOne({ _id: new mongoose.Types.ObjectId(reviewId) }, { $set: review });
 
 export const findReviewsByUserId = (userId) => model.find({ user_id: userId });
 
@@ -33,5 +34,5 @@ export const averageSongReviewRating = async (songId) => {
 export const findFavoritedReviewsByUserId = (userId) =>
   model.find({ user_id: userId }).where("favorited").equals(true);
 
-export const findReviewById = (reviewId) => model.findById(reviewId);
-export const deleteReview = (reviewId) => model.deleteOne({ _id: reviewId });
+export const findReviewById = (reviewId) => model.findById(new mongoose.Types.ObjectId(reviewId));
+export const deleteReview = (reviewId) => model.deleteOne({ _id: new mongoose.Types.ObjectId(reviewId) });
