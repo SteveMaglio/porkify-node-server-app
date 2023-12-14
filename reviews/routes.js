@@ -78,6 +78,26 @@ function ReviewRoutes(app) {
     res.json(average);
   };  
 
+  const averageSongReviewRatingBySpotifyId = async (req, res) => {
+    //const average = await dao.averageSongReviewRating(req.params.song._id);
+    //res.json(average);
+
+
+    const song = await findSongBySpotifyId(req.params.spotifyId);
+
+    console.log("SPOTIFY ID", req.params.spotifyId);
+    if (song) {
+    console.log("SONG ID", song._id);
+
+    const average = await dao.averageSongReviewRating(song._id);
+    console.log("average", average);
+    res.json(average);
+    }
+    else{
+      res.json([]);
+    }
+  };  
+
   const findFavoritedReviewsByUserId = async (req, res) => {
     const favorited_reviews = await dao.findFavoritedReviewsByUserId(
       req.params.userId
@@ -96,10 +116,11 @@ function ReviewRoutes(app) {
 
 
   app.get("/api/songs/:songId/reviews", findReviewsBySongId);
-  app.get("/api/songs/:spotifyId/reviews", findReviewsBySpotifyId);
+  app.get("/api/songs/:spotifyId/spotify/reviews", findReviewsBySpotifyId);
 
   app.get("/api/songs/:songId/avgRating", averageSongReviewRating);
-
+  app.get("/api/songs/:spotifyId/spotify/avgRating", averageSongReviewRatingBySpotifyId);
+  
   app.get("/api/users/:userId/favorited_reviews", findFavoritedReviewsByUserId);
   app.get("/api/reviews/:reviewId", findReviewById);
   app.put("/api/reviews/:reviewId", updateReview);
