@@ -1,16 +1,13 @@
 import * as dao from "./dao.js";
 let currentSong = null;
 function SongRoutes(app) {
-
-
   const createSong = async (req, res) => {
     const results = await dao.findSongBySpotifyId(req.body.spotify_id);
 
     if (!results) {
-    const song = await dao.createSong(req.body);
-    res.json(song);
-    }
-    else {
+      const song = await dao.createSong(req.body);
+      res.json(song);
+    } else {
       res.json(results);
     }
   };
@@ -39,15 +36,14 @@ function SongRoutes(app) {
     const { songId } = req.params;
     const status = await dao.updateSong(songId, req.body);
     const currentSong = await dao.findSongById(songId);
-    req.session['currentSong'] = currentSong;
+    req.session["currentSong"] = currentSong;
     res.json(status);
   };
-
 
   const deleteSong = async (req, res) => {
     const status = await dao.deleteSong(req.params.songId);
     res.json(status);
-};
+  };
 
   app.post("/api/songs", createSong);
   app.get("/api/songs", findAllSongs);
@@ -56,6 +52,5 @@ function SongRoutes(app) {
   app.get("/api/songs/:title", findSongByTitle);
   app.put("/api/songs/:songId", updateSong);
   app.delete("/api/songs/:songId", deleteSong);
-
 }
 export default SongRoutes;
