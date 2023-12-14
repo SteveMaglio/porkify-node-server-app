@@ -1,3 +1,5 @@
+import { findSongById } from "../songs/dao.js";
+import { findUserById } from "../users/dao.js";
 import * as dao from "./dao.js";
 let currentUser = null;
 function ReviewRoutes(app) {
@@ -15,7 +17,7 @@ function ReviewRoutes(app) {
     const { reviewId } = req.params;
     const status = await dao.updateReview(reviewId, req.body);
     const currentReview = await dao.findReviewById(reviewId);
-    req.session['currentReview'] = currentReview;
+    req.session["currentReview"] = currentReview;
     res.json(status);
   };
 
@@ -26,19 +28,31 @@ function ReviewRoutes(app) {
 
   const findReviewsByUserId = async (req, res) => {
     const reviews = await dao.findReviewsByUserId(req.params.userId);
-    res.json(reviews);
-  };  
+    const songs = [];
+    const user = await findUserById(req.params.userId);
+    for (const review of reviews) {
+      const song = await findSongById(review.song_id);
+      songs.push({
+        song: song,
+        review: review,
+        user: user,
+      });
+    }
+
+    res.json(songs);
+  };
 
   const findFavoritedReviewsByUserId = async (req, res) => {
-    const favorited_reviews = await dao.findFavoritedReviewsByUserId(req.params.userId);
+    const favorited_reviews = await dao.findFavoritedReviewsByUserId(
+      req.params.userId
+    );
     res.json(favorited_reviews);
-  };  
+  };
 
   const deleteReview = async (req, res) => {
     const status = await dao.deleteReview(req.params.reviewId);
     res.json(status);
   };
-
 
   app.post("/api/reviews", createReview);
   app.get("/api/reviews", findAllReviews);
@@ -47,6 +61,5 @@ function ReviewRoutes(app) {
   app.get("/api/reviews/:reviewId", findReviewById);
   app.put("/api/reviews/:reviewId", updateReview);
   app.delete("/api/reviews/:reviewId", deleteReview);
-
 }
 export default ReviewRoutes;
