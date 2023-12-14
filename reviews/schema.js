@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 const reviewSchema = new mongoose.Schema({
     user_id:  { type: String, required: true},
+    username:  { type: String, required: true},
     song_id:  { type: String, required: true},
     favorited:  { type: Boolean, required: true, default : false},
     rating:  { type: Number, required: true, default : 5.0},

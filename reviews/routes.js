@@ -64,6 +64,7 @@ function ReviewRoutes(app) {
     console.log("SONG ID", song._id);
 
     const reviews = await dao.findReviewsBySongId(song._id);
+
     console.log("reviews", reviews);
     res.json(reviews);
     }
