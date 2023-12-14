@@ -6,7 +6,8 @@ const reviewSchema = new mongoose.Schema({
     rating: Number,
     body: String,
     is_taken_down: Boolean,
-    reason_for_taken_down: String
+    reason_for_taken_down: String,
+    __v : Number
   },
   { collection: "reviews" });
 export default reviewSchema;

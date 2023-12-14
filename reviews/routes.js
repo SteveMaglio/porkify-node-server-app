@@ -4,11 +4,18 @@ import * as dao from "./dao.js";
 let currentUser = null;
 function ReviewRoutes(app) {
   const createReview = async (req, res) => {
-    const review = await dao.createReview(req.body);
-    res.json(review);
+    try {
+      const review = await dao.createReview(req.body);
+      res.json(review);
+    } catch (e) {
+      console.log(e);
+    }
   };
+  
 
   const findAllReviews = async (req, res) => {
+
+
     const reviews = await dao.findAllReviews();
     res.json(reviews);
   };
@@ -39,6 +46,7 @@ function ReviewRoutes(app) {
       });
     }
 
+
     res.json(songs);
   };
 
@@ -46,6 +54,7 @@ function ReviewRoutes(app) {
     const reviews = await dao.findReviewsBySongId(req.params.songId);
     res.json(reviews);
   };  
+
 
   const averageSongReviewRating = async (req, res) => {
     const average = await dao.averageSongReviewRating(req.params.songId);
@@ -67,6 +76,8 @@ function ReviewRoutes(app) {
   app.post("/api/reviews", createReview);
   app.get("/api/reviews", findAllReviews);
   app.get("/api/users/:userId/reviews", findReviewsByUserId);
+
+
   app.get("/api/songs/:songId/reviews", findReviewsBySongId);
 
   app.get("/api/songs/:songId/avgRating", averageSongReviewRating);

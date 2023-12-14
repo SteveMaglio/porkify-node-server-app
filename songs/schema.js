@@ -7,6 +7,7 @@ const songSchema = new mongoose.Schema({
     album_name: String,
     release_date: Date,
     album_art_url: String,
+    __v: Number
   },
   { collection: "songs" });
 export default songSchema;
