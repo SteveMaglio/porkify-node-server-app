@@ -6,7 +6,11 @@ export const updateReview = (reviewId, review) =>
 
 export const findReviewsByUserId = (userId) => model.find({ user_id: userId });
 
-export const findReviewsBySongId = (songId) => model.find({ song_id: songId });
+export const findReviewsBySongId = async (songId) => {
+  const reviews = await model.find({ song_id: songId });
+  return reviews.reverse();
+};
+
 
 export const averageSongReviewRating = async (songId) => {
   var allReviews = await findReviewsBySongId(songId);
